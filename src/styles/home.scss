@@ -1,0 +1,32 @@
+.home {
+  background-image: url(../img/main.jpg);
+  height: calc(100vh - 7rem);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .home-title {
+    color: #d7c0ae;
+    font-size: 3.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .order-button {
+    padding: 1.2rem 1.6rem;
+    font-size: 1.1rem;
+    border: none;
+    font-weight: 800;
+    color: #d7c0ae;
+    background-color: #562b08;
+    letter-spacing: 0.1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.4s;
+    &:hover {
+      color: #562b08;
+      background-color: #d7c0ae;
+    }
+  }
+}
