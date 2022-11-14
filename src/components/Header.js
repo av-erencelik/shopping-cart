@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../img/logo.png";
 import ModalCart from "./Modal";
 
@@ -9,19 +9,43 @@ export default function Header() {
       <nav className="navigation">
         <ul>
           <li>
-            <Link to="/" className="link">
+            <NavLink
+              to="/"
+              className="link"
+              style={({ isActive }) => {
+                return isActive
+                  ? { color: "#d7c0ae", backgroundColor: "#562b08" }
+                  : {};
+              }}
+            >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/products" className="link">
+            <NavLink
+              to="/products"
+              className="link"
+              style={({ isActive }) => {
+                return isActive
+                  ? { color: "#d7c0ae", backgroundColor: "#562b08" }
+                  : {};
+              }}
+            >
               Products
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/about" className="link">
+            <NavLink
+              to="/about"
+              className="link"
+              style={({ isActive }) => {
+                return isActive
+                  ? { color: "#d7c0ae", backgroundColor: "#562b08" }
+                  : {};
+              }}
+            >
               About
-            </Link>
+            </NavLink>
           </li>
           <ModalCart></ModalCart>
         </ul>
