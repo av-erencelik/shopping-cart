@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Example from "./components/Modal";
 import Products from "./components/Products";
-
+import "./styles/main.scss";
 function App() {
   return (
     <>

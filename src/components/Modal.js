@@ -1,4 +1,3 @@
-import "./../styles/modal.scss";
 import React from "react";
 import Modal from "react-modal";
 
