@@ -29,3 +29,15 @@
     background-color: #562b08;
   }
 }
+.modal-cart {
+  position: absolute;
+  inset: 0px 0px auto auto;
+  border: none;
+  background: rgb(215, 192, 174);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  height: 100vh;
+  width: 25rem;
+}

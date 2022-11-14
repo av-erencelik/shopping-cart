@@ -2,14 +2,6 @@ import React from "react";
 import Modal from "react-modal";
 import { BsFillCartFill } from "react-icons/bs";
 const customStyles = {
-  content: {
-    top: "0",
-    left: "auto",
-    right: "0",
-    bottom: "auto",
-    backgroundColor: "black",
-    height: "100%",
-  },
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.550)",
   },
@@ -45,18 +37,8 @@ export default function ModalCart() {
         style={customStyles}
         contentLabel="Example Modal"
         closeTimeoutMS={1000}
-      >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
-      </Modal>
+        className="modal-cart"
+      ></Modal>
     </div>
   );
 }

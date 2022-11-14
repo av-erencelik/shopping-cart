@@ -9,3 +9,15 @@ body {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
+
+@media (max-width: 750px) {
+  html {
+    font-size: 10px;
+  }
+  .header {
+    padding: 1rem;
+  }
+  .modal-cart {
+    width: 100%;
+  }
+}
