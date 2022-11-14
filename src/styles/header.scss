@@ -6,10 +6,11 @@
   align-items: center;
   .logo {
     border-radius: 50%;
-    width: 6rem;
+    width: 5rem;
   }
   .navigation ul {
     display: flex;
+    align-items: center;
     gap: 2rem;
     li {
       list-style-type: none;

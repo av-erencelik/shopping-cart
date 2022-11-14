@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
-
+import { BsFillCartFill } from "react-icons/bs";
 const customStyles = {
   content: {
     top: "0",
@@ -18,7 +18,7 @@ const customStyles = {
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("#root");
 
-export default function Example() {
+export default function ModalCart() {
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -37,8 +37,7 @@ export default function Example() {
 
   return (
     <div>
-      <button onClick={openModal}>Open Modal</button>
-
+      <BsFillCartFill onClick={openModal} className="cartIcon"></BsFillCartFill>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}

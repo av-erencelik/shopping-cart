@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
+import ModalCart from "./Modal";
+
 export default function Header() {
   return (
     <header className="header">
@@ -21,6 +23,7 @@ export default function Header() {
               About
             </Link>
           </li>
+          <ModalCart></ModalCart>
         </ul>
       </nav>
     </header>

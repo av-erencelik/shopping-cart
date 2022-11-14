@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import Example from "./components/Modal";
 import Products from "./components/Products";
 import "./styles/main.scss";
 function App() {
@@ -14,7 +13,6 @@ function App() {
           <Route path=":id" element={<Products></Products>}></Route>
         </Route>
       </Routes>
-      <Example></Example>
     </>
   );
 }
