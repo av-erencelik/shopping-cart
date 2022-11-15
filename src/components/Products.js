@@ -5,8 +5,16 @@ import { BsSortDown } from "react-icons/bs";
 
 export default function Products(props) {
   const [isIdSpecified, setIsIdSpecified] = useState(false);
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState(props.products);
   const { id } = useParams();
+  const handleFiltering = (e) => {
+    let temp = props.products.filter(
+      (product) => product.type === e.target.dataset.value
+    );
+    temp.length > 0
+      ? setFilteredProducts(temp)
+      : setFilteredProducts(props.products);
+  };
   useEffect(() => {
     if (id !== undefined) {
       setIsIdSpecified(true);
@@ -23,16 +31,47 @@ export default function Products(props) {
         <aside className="categories">
           <h3 className="category-title">Categories</h3>
           <ul className="category-list">
-            <li className="category">Boxs</li>
-            <li className="category">Tablets</li>
-            <li className="category">Cakes</li>
-            <li className="category">Christmas</li>
+            <li
+              className="category"
+              onClick={handleFiltering}
+              data-value={"all"}
+            >
+              All
+            </li>
+            <li
+              className="category"
+              onClick={handleFiltering}
+              data-value={"box"}
+            >
+              Boxs
+            </li>
+            <li
+              className="category"
+              data-value={"tablet"}
+              onClick={handleFiltering}
+            >
+              Tablets
+            </li>
+            <li
+              className="category"
+              data-value={"cake"}
+              onClick={handleFiltering}
+            >
+              Cakes
+            </li>
+            <li
+              className="category"
+              data-value={"christmas"}
+              onClick={handleFiltering}
+            >
+              Christmas
+            </li>
           </ul>
         </aside>
         <div className="container">
           <div className="products">
             {isIdSpecified
-              ? props.products.map((product) => {
+              ? filteredProducts.map((product) => {
                   if (product.id == id) {
                     return (
                       <Product
@@ -43,7 +82,7 @@ export default function Products(props) {
                     );
                   }
                 })
-              : props.products.map((product) => {
+              : filteredProducts.map((product) => {
                   return (
                     <Product
                       product={product}
