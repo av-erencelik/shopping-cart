@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import logo from "../img/logo.png";
 import ModalCart from "./Modal";
 
-export default function Header() {
+export default function Header(props) {
   return (
     <header className="header">
       <img src={logo} alt="logo" className="logo"></img>
@@ -34,20 +34,11 @@ export default function Header() {
               Products
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/about"
-              className="link"
-              style={({ isActive }) => {
-                return isActive
-                  ? { color: "#d7c0ae", backgroundColor: "#562b08" }
-                  : {};
-              }}
-            >
-              About
-            </NavLink>
-          </li>
-          <ModalCart></ModalCart>
+          <ModalCart
+            cart={props.cart}
+            handleIncrement={props.handleIncrement}
+            handleDecrement={props.handleDecrement}
+          ></ModalCart>
         </ul>
       </nav>
     </header>

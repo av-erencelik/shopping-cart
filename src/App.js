@@ -14,15 +14,37 @@ function App() {
     let cartItem = { ...item };
     cartItem.quantity = 1;
     cartItem.price = price;
-    setCart((prevState) => ({
-      ...prevState,
-      cartItem,
-    }));
-    console.log(cart);
+    setCart([...cart, cartItem]);
+  }
+  function handleIncrement(cartItem) {
+    setCart((prev) =>
+      prev.map((item) =>
+        item.id === cartItem.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  }
+  function handleDecrement(cartItem) {
+    if (cartItem.quantity === 1) {
+      setCart((prev) => prev.filter((item) => item.id !== cartItem.id));
+      return;
+    }
+    setCart((prev) =>
+      prev.map((item) =>
+        item.id === cartItem.id
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+    );
   }
   return (
     <>
-      <Header></Header>
+      <Header
+        cart={cart}
+        handleIncrement={handleIncrement}
+        handleDecrement={handleDecrement}
+      ></Header>
       <Routes>
         <Route
           path="/"
