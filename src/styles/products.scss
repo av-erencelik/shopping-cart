@@ -1,0 +1,165 @@
+.products-container {
+  background-color: #562b08;
+  padding: 3rem 10rem;
+  min-height: calc(100vh - 13rem);
+  .toolbar {
+    display: flex;
+    justify-content: flex-end;
+    .sort-button {
+      padding: 1.2rem 1.6rem;
+      font-size: 1.1rem;
+      border: none;
+      font-weight: 800;
+      color: #562b08;
+      background-color: #d7c0ae;
+      letter-spacing: 0.1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.4s;
+      display: flex;
+      align-items: center;
+      .sort-icon {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+  .products-main {
+    display: flex;
+    .categories {
+      background-color: #d7c0ae;
+      width: 7vw;
+      height: 50vh;
+      padding: 3rem;
+      border-radius: 0.5rem;
+      .category-title {
+        color: #562b08;
+        border-bottom: 2px solid #562b08;
+        padding-bottom: 0.5rem;
+        text-align: center;
+        letter-spacing: 0.1rem;
+      }
+      .category-list {
+        .category {
+          list-style: none;
+          color: #562b08;
+          font-size: 1.1rem;
+          font-weight: 800;
+          letter-spacing: 0.1rem;
+          padding-top: 0.5rem;
+          cursor: pointer;
+          &::after {
+            display: block;
+            content: "";
+            border-bottom: solid 2px #562b08;
+            transform: scaleX(0);
+            transition: transform 250ms ease-in-out;
+          }
+          &:hover::after {
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+    .container {
+      flex: 1;
+      .products {
+        display: block;
+        padding: 3rem 0;
+        gap: 1rem;
+        width: 100%;
+        margin: auto;
+        .product {
+          display: inline-block;
+          width: calc(25% - 1rem);
+          margin-left: 1rem;
+          margin-bottom: 1rem;
+          .image {
+            width: 100%;
+            margin-bottom: 0.5rem;
+          }
+          .product-title {
+            font-size: 1.1rem;
+            text-align: center;
+            color: #d7c0ae;
+            margin-bottom: 0.5rem;
+          }
+          .add-cart {
+            width: 80%;
+            padding-top: 1.1rem;
+            padding-bottom: 1.05rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            border: none;
+            border-left: 1px solid #562b08;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #d7c0ae;
+            color: #562b08;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            transition: all 0.4s;
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+          .box-size {
+            background-color: #d7c0ae;
+            color: #562b08;
+            font-weight: 800;
+            font-size: 1.1rem;
+            width: 20%;
+            display: inline-block;
+            height: 3.4rem;
+            border-radius: 0.5rem 0 0 0.5rem;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.4s;
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+          .add-cart-100 {
+            width: 100%;
+            padding-top: 1.1rem;
+            padding-bottom: 1.05rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #d7c0ae;
+            color: #562b08;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            transition: all 0.4s;
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1500px) {
+  .product {
+    width: calc(33% - 1rem) !important;
+  }
+}
+@media (max-width: 1000px) {
+  .product {
+    width: calc(50% - 1rem) !important;
+  }
+}
+@media (max-width: 550px) {
+  .product {
+    width: calc(100% - 1rem) !important;
+  }
+}

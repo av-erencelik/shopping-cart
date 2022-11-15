@@ -1,4 +1,4 @@
-import { uuid } from "uuidv4";
+import { v4 as uuid } from "uuid";
 import milkBox from "../img/milk-box.png";
 import darkBox from "../img/dark-box.png";
 import milkTablet from "../img/milk-tablet.jpeg";
