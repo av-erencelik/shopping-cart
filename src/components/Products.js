@@ -73,6 +73,7 @@ export default function Products(props) {
                         product={product}
                         key={product.id}
                         addingItemToCart={props.addingItemToCart}
+                        isOneProduct={isIdSpecified}
                       ></Product>
                     );
                   }
@@ -83,6 +84,7 @@ export default function Products(props) {
                       product={product}
                       key={product.id}
                       addingItemToCart={props.addingItemToCart}
+                      isOneProduct={isIdSpecified}
                     ></Product>
                   );
                 })}
