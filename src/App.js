@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -13,16 +13,14 @@ function App() {
         <Route
           path="/"
           element={
-            <AnimatePresence>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.7 }}
-                exit={{ x: -1500, opacity: 0 }}
-              >
-                <Home></Home>
-              </motion.div>
-            </AnimatePresence>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7 }}
+              exit={{ opacity: 0 }}
+            >
+              <Home></Home>
+            </motion.div>
           }
         ></Route>
         <Route path="/products" element={<Products></Products>}>
