@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Product from "./Product";
-import { BsSortDown } from "react-icons/bs";
 
 export default function Products(props) {
   const [isIdSpecified, setIsIdSpecified] = useState(false);
@@ -22,11 +21,7 @@ export default function Products(props) {
   });
   return (
     <div className="products-container">
-      <div className="toolbar">
-        <button className="sort-button">
-          Sort <BsSortDown className="sort-icon"></BsSortDown>
-        </button>
-      </div>
+      <div className="toolbar"></div>
       <main className="products-main">
         <aside className="categories">
           <h3 className="category-title">Categories</h3>
