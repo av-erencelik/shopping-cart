@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/shopping-cart/static/css/main.1357d0bf.css",
+    "main.js": "/shopping-cart/static/js/main.0ea222f8.js",
+    "static/media/letter-cake.png": "/shopping-cart/static/media/letter-cake.308ed9bbb0cb4f1264aa.png",
+    "static/media/assorted.png": "/shopping-cart/static/media/assorted.59cab277901ba3e77c95.png",
+    "static/media/dark-tablet.png": "/shopping-cart/static/media/dark-tablet.26fe0bd3ff2a8f433910.png",
+    "static/media/milk-box.png": "/shopping-cart/static/media/milk-box.9f7dcf6393967dbbb7a3.png",
+    "static/media/christmas-home.png": "/shopping-cart/static/media/christmas-home.96cbde78ce35dccdfb26.png",
+    "static/media/main.jpg": "/shopping-cart/static/media/main.491eb08d44e45846bb0c.jpg",
+    "static/media/dark-box.png": "/shopping-cart/static/media/dark-box.7ce07d7cde9d34067d7e.png",
+    "static/media/birthday-cake.png": "/shopping-cart/static/media/birthday-cake.2dc93b111e5c2b013c31.png",
+    "static/media/milk-tablet.jpeg": "/shopping-cart/static/media/milk-tablet.805732c922dbf509970b.jpeg",
+    "static/media/logo.png": "/shopping-cart/static/media/logo.262ae32f2bc324b28dce.png",
+    "index.html": "/shopping-cart/index.html",
+    "main.1357d0bf.css.map": "/shopping-cart/static/css/main.1357d0bf.css.map",
+    "main.0ea222f8.js.map": "/shopping-cart/static/js/main.0ea222f8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1357d0bf.css",
+    "static/js/main.0ea222f8.js"
+  ]
+}
