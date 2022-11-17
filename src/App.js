@@ -14,6 +14,11 @@ function App() {
     let cartItem = { ...item };
     cartItem.quantity = 1;
     cartItem.price = price;
+    let tempCart = cart.filter((cartItem) => cartItem.id === item.id);
+    if (tempCart.length > 0) {
+      handleIncrement(cartItem);
+      return;
+    }
     setCart([...cart, cartItem]);
   }
   function handleIncrement(cartItem) {
