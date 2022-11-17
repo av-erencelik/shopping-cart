@@ -26,7 +26,14 @@ export default function ModalCart(props) {
 
   return (
     <div>
-      <BsFillCartFill onClick={openModal} className="cartIcon"></BsFillCartFill>
+      <div className="modal-button-container">
+        <BsFillCartFill
+          onClick={openModal}
+          className="cartIcon"
+        ></BsFillCartFill>
+        <div className="cart-quantity">{props.cart.length}</div>
+      </div>
+
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}

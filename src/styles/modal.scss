@@ -105,3 +105,20 @@
     font-weight: 800;
   }
 }
+.modal-button-container {
+  position: relative;
+}
+.cart-quantity {
+  background-color: #562b08;
+  color: #d7c0ae;
+  font-size: 1.1rem;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: 800;
+  width: 1.5rem;
+  height: 1.5rem;
+  z-index: 1;
+  position: absolute;
+  right: -10%;
+  bottom: -10%;
+}
