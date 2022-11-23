@@ -1,7 +1,31 @@
-# Getting Started with Create React App
+# MemoryBall Game
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Description 
+
+After finishing memory game project and learning more about react-router, The Odin Project website's curriculums next project was creating a e-commerce site without checkout. I only used function components for this project because React's recent beta docs only focused on function components on hooks. This is the third project that I ever created with ReactJS. I am happy that I was able to finish project successfully. For the first time in this project, I felt the need to share data among unrelated components. As a result of my research, I learned that it is necessary to use the react-redux or useContext API. After this project, I decided to learn both react-redux and useContext.
+
+## What I Learnt
+
+1-What is React-Router-Dom.
+<br>
+2-Differences between client-side-rendering and server-side-rendering.
+<br>
+3-How to use React-Router-Dom.
+<br>
+4-Sharing data with unrelated component with using parent component.
+<br>
+5-Using Browser-Router and need of giving basename attribute before publishibg page.
+<br>
+6-How to use Routes and Route components.
+<br>
+7-Differences between Link and NavLinks.
+<br>
+8-How to navigate user through links through pages.
+<br>
+9-Using useNavigate() and useParams() hooks.
+<br>
 ## Available Scripts
 
 In the project directory, you can run:
@@ -27,44 +51,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
