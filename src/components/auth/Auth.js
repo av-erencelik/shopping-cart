@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import LoginForm from "./LoginForm";
 import SignupForm from "./SignUpForm";
 
 export default function Auth() {
@@ -24,10 +25,11 @@ export default function Auth() {
             Login
           </div>
           <div className="signup-button selected" onClick={handleChangeAuth} ref={signup}>
-            Sign-up
+            Sign Up
           </div>
         </div>
         {!isLogin && <SignupForm></SignupForm>}
+        {isLogin && <LoginForm></LoginForm>}
       </div>
     </div>
   );

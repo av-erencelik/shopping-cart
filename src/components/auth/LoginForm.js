@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import authContext from "../store/auth-context";
+import { useNavigate } from "react-router-dom";
 
-export default function SignupForm() {
+export default function LoginForm() {
+  const navigate = useNavigate();
   const [error, setError] = useState("");
+  const authCtx = useContext(authContext);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -22,14 +26,13 @@ export default function SignupForm() {
       email: Yup.string().email("*Invalid email address").required("*Required"),
     }),
     onSubmit: async (values) => {
-      setError("");
       try {
-        const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+        const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
+        authCtx.login(userCredential.user.accessToken);
+        navigate("/");
       } catch (error) {
-        if (error.message === "Firebase: Error (auth/email-already-in-use).") {
-          setError("Email is alreay in use! Please, try to sing up with another email or login with current email");
-        } else {
-          setError("Sign up was unsuccessful! Please, try again later.");
+        if (error.message === "Firebase: Error (auth/user-not-found).") {
+          setError("User not found! Please, enter valid email and password.");
         }
       }
     },
@@ -39,7 +42,15 @@ export default function SignupForm() {
       <label htmlFor="email" className="label">
         EMAIL
       </label>
-      <input id="email" name="email" type="email" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} className="input" />
+      <input
+        id="email"
+        name="email"
+        type="email"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.email}
+        className="input"
+      />
       {formik.touched.email && formik.errors.email ? <div className="error">{formik.errors.email}</div> : null}
 
       <label htmlFor="password" className="label">
@@ -56,7 +67,7 @@ export default function SignupForm() {
       />
       {formik.touched.password && formik.errors.password ? <div className="error">{formik.errors.password}</div> : null}
       <button type="submit" className="submit">
-        SIGN UP
+        LOGIN
       </button>
       {error && <div className="error-auth">{error}</div>}
     </form>

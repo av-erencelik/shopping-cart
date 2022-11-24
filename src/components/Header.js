@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 import logo from "../img/logo.png";
 import ModalCart from "./Modal";
-
+import authContext from "./store/auth-context";
+import { useContext } from "react";
 export default function Header(props) {
+  const authCtx = useContext(authContext);
   return (
     <header className="header">
       <img src={logo} alt="logo" className="logo"></img>
@@ -13,9 +15,7 @@ export default function Header(props) {
               to="/"
               className="link"
               style={({ isActive }) => {
-                return isActive
-                  ? { color: "#d7c0ae", backgroundColor: "#562b08" }
-                  : {};
+                return isActive ? { color: "#d7c0ae", backgroundColor: "#562b08" } : {};
               }}
             >
               Home
@@ -26,27 +26,45 @@ export default function Header(props) {
               to="/products"
               className="link"
               style={({ isActive }) => {
-                return isActive
-                  ? { color: "#d7c0ae", backgroundColor: "#562b08" }
-                  : {};
+                return isActive ? { color: "#d7c0ae", backgroundColor: "#562b08" } : {};
               }}
             >
               Products
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/auth"
-              className="link"
-              style={({ isActive }) => {
-                return isActive
-                  ? { color: "#d7c0ae", backgroundColor: "#562b08" }
-                  : {};
-              }}
-            >
-              Login/Sign-up
-            </NavLink>
-          </li>
+          {!authCtx.isLoggedIn && (
+            <li>
+              <NavLink
+                to="/auth"
+                className="link"
+                style={({ isActive }) => {
+                  return isActive ? { color: "#d7c0ae", backgroundColor: "#562b08" } : {};
+                }}
+              >
+                Login/Sign-up
+              </NavLink>
+            </li>
+          )}
+          {authCtx.isLoggedIn && (
+            <>
+              <li>
+                <NavLink
+                  to="/profile"
+                  className="link"
+                  style={({ isActive }) => {
+                    return isActive ? { color: "#d7c0ae", backgroundColor: "#562b08" } : {};
+                  }}
+                >
+                  Profile
+                </NavLink>
+              </li>
+              <li>
+                <NavLink onClick={authCtx.logout} className="link">
+                  Logout
+                </NavLink>
+              </li>
+            </>
+          )}
           <ModalCart
             cart={props.cart}
             handleIncrement={props.handleIncrement}
