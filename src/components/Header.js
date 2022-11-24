@@ -34,6 +34,19 @@ export default function Header(props) {
               Products
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/auth"
+              className="link"
+              style={({ isActive }) => {
+                return isActive
+                  ? { color: "#d7c0ae", backgroundColor: "#562b08" }
+                  : {};
+              }}
+            >
+              Login/Sign-up
+            </NavLink>
+          </li>
           <ModalCart
             cart={props.cart}
             handleIncrement={props.handleIncrement}

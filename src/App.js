@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import Auth from "./components/auth/Auth";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Products from "./components/Products";
@@ -78,6 +79,8 @@ function App() {
             element={<Products products={products}></Products>}
           ></Route>
         </Route>
+        <Route path="/auth" element={<Auth></Auth>}></Route>
+        {/* add page not found route */}
       </Routes>
     </>
   );
