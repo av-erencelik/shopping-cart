@@ -42,3 +42,54 @@
     height: 93.25vh;
   }
 }
+
+// signup
+
+.signup-form {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .label {
+    color: #562b08;
+    font-size: 1.1rem;
+    font-weight: 900;
+    margin-top: 1rem;
+  }
+  .input {
+    padding: 0.7rem;
+    border-radius: 8px;
+    background-color: #562b08;
+    color: #d7c0ae;
+    border: 2px solid #562b08;
+    outline: none;
+    font-size: 1rem;
+  }
+  .submit {
+    padding: 0.7rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #d7c0ae;
+    background-color: #562b08;
+    border: 2px solid #562b08;
+    border-radius: 8px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      background-color: #d7c0ae;
+      color: #562b08;
+    }
+  }
+  .error,
+  .error-auth {
+    color: red;
+    font-size: 12px;
+    margin-top: 0.2rem;
+  }
+  .error-auth {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 700;
+  }
+}

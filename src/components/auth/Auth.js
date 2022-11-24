@@ -1,9 +1,10 @@
 import { useRef, useState } from "react";
+import SignupForm from "./SignUpForm";
 
 export default function Auth() {
   const login = useRef();
   const signup = useRef();
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   function handleChangeAuth(e) {
     if (!e.target.classList.contains("selected") && e.target === login.current) {
       e.target.classList.add("selected");
@@ -26,6 +27,7 @@ export default function Auth() {
             Sign-up
           </div>
         </div>
+        {!isLogin && <SignupForm></SignupForm>}
       </div>
     </div>
   );
