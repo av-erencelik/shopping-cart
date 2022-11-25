@@ -1,18 +1,16 @@
 import React, { useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
+import { updatePassword } from "firebase/auth";
 import authContext from "../store/auth-context";
 import { useNavigate } from "react-router-dom";
 
-export default function LoginForm() {
+export default function ChangePasswordForm() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const authCtx = useContext(authContext);
   const formik = useFormik({
     initialValues: {
-      email: "",
       password: "",
     },
     validationSchema: Yup.object({
@@ -23,43 +21,23 @@ export default function LoginForm() {
         .matches(/[a-z]+/, "Must contain one lowercase character")
         .matches(/[A-Z]+/, "Must contain one uppercase character")
         .matches(/\d+/, "Must contain one number"),
-      email: Yup.string().email("*Invalid email address").required("*Required"),
     }),
     onSubmit: async (values) => {
       try {
-        const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
-        authCtx.login(userCredential.user.accessToken, userCredential.user);
+        const userCredential = await updatePassword(authCtx.user, values.password);
         navigate("/");
       } catch (error) {
-        if (
-          error.message === "Firebase: Error (auth/user-not-found)." ||
-          error.message === "Firebase: Error (auth/wrong-password)."
-        ) {
+        console.log(error);
+        if (error.message === "Firebase: Error (auth/user-not-found).") {
           setError("User not found! Please, enter valid email and password.");
-        } else {
-          setError(error.message);
         }
       }
     },
   });
   return (
     <form onSubmit={formik.handleSubmit} className="signup-form">
-      <label htmlFor="email" className="label">
-        EMAIL
-      </label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email}
-        className="input"
-      />
-      {formik.touched.email && formik.errors.email ? <div className="error">{formik.errors.email}</div> : null}
-
       <label htmlFor="password" className="label">
-        PASSWORD
+        NEW PASSWORD
       </label>
       <input
         id="password"

@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Products from "./components/Products";
 import { productsState } from "./components/ProductsState";
+import Profile from "./components/profile/Profile";
 import "./styles/main.scss";
 
 function App() {
@@ -23,34 +24,18 @@ function App() {
     setCart([...cart, cartItem]);
   }
   function handleIncrement(cartItem) {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === cartItem.id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      )
-    );
+    setCart((prev) => prev.map((item) => (item.id === cartItem.id ? { ...item, quantity: item.quantity + 1 } : item)));
   }
   function handleDecrement(cartItem) {
     if (cartItem.quantity === 1) {
       setCart((prev) => prev.filter((item) => item.id !== cartItem.id));
       return;
     }
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === cartItem.id
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
-    );
+    setCart((prev) => prev.map((item) => (item.id === cartItem.id ? { ...item, quantity: item.quantity - 1 } : item)));
   }
   return (
     <>
-      <Header
-        cart={cart}
-        handleIncrement={handleIncrement}
-        handleDecrement={handleDecrement}
-      ></Header>
+      <Header cart={cart} handleIncrement={handleIncrement} handleDecrement={handleDecrement}></Header>
       <Routes>
         <Route
           path="/"
@@ -65,21 +50,11 @@ function App() {
             </motion.div>
           }
         ></Route>
-        <Route
-          path="/products"
-          element={
-            <Products
-              products={products}
-              addingItemToCart={addingItemToCart}
-            ></Products>
-          }
-        >
-          <Route
-            path=":id"
-            element={<Products products={products}></Products>}
-          ></Route>
+        <Route path="/products" element={<Products products={products} addingItemToCart={addingItemToCart}></Products>}>
+          <Route path=":id" element={<Products products={products}></Products>}></Route>
         </Route>
         <Route path="/auth" element={<Auth></Auth>}></Route>
+        <Route path="/profile" element={<Profile></Profile>}></Route>
         {/* add page not found route */}
       </Routes>
     </>
