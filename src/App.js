@@ -1,17 +1,20 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Route, Routes, Redirect } from "react-router-dom";
 import Auth from "./components/auth/Auth";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import NotFound from "./components/NotFound";
 import Products from "./components/Products";
 import { productsState } from "./components/ProductsState";
 import Profile from "./components/profile/Profile";
+import authContext from "./components/store/auth-context";
 import "./styles/main.scss";
 
 function App() {
   const [products, setProducts] = useState(productsState);
   const [cart, setCart] = useState([]);
+  const authCtx = useContext(authContext);
   function addingItemToCart(price, item) {
     let cartItem = { ...item };
     cartItem.quantity = 1;
@@ -53,8 +56,9 @@ function App() {
         <Route path="/products" element={<Products products={products} addingItemToCart={addingItemToCart}></Products>}>
           <Route path=":id" element={<Products products={products}></Products>}></Route>
         </Route>
-        <Route path="/auth" element={<Auth></Auth>}></Route>
-        <Route path="/profile" element={<Profile></Profile>}></Route>
+        {authCtx.isLoggedIn && <Route path="/profile" element={<Profile></Profile>}></Route>}
+        {!authCtx.isLoggedIn && <Route path="/auth" element={<Auth></Auth>}></Route>}
+        <Route path="*" element={<NotFound></NotFound>}></Route>
         {/* add page not found route */}
       </Routes>
     </>
